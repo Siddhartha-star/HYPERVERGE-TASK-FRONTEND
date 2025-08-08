@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { Header } from "@/components/layout/header";
-import { useAuth } from "@/lib/auth";
 import { useSchools } from "@/lib/api";
+import { useAuth } from "@/lib/auth";
 import { motion } from "framer-motion"; // Import Framer Motion
 import { X } from "lucide-react"; // Import X icon
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 export default function CreateSchool() {
     const router = useRouter();
@@ -261,6 +260,7 @@ export default function CreateSchool() {
                                         className="w-full px-3 sm:px-4 py-3 rounded-md bg-[#161925] border border-gray-800 text-white focus:outline-none focus:ring-1 focus:ring-white"
                                         required
                                         maxLength={40}
+                                        placeholder="Enter your school name"
                                     />
                                     <div className="text-right text-sm text-gray-400 mt-1">
                                         {schoolName.length}/40

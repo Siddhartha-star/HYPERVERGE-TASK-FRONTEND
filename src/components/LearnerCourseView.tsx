@@ -1,14 +1,13 @@
-import { useState, useRef, useCallback, useEffect } from "react";
-import Link from "next/link";
-import { ModuleItem, Module } from "@/types/course";
-import CourseModuleList from "./CourseModuleList";
-import dynamic from "next/dynamic";
-import { X, CheckCircle, BookOpen, HelpCircle, Clipboard, ChevronLeft, ChevronRight, Menu, FileText, Brain, ClipboardList, Loader2 } from "lucide-react";
 import { useAuth } from "@/lib/auth";
+import { Module } from "@/types/course";
 import confetti from "canvas-confetti";
-import SuccessSound from "./SuccessSound";
-import ModuleCompletionSound from "./ModuleCompletionSound";
+import { BookOpen, CheckCircle, ChevronLeft, ChevronRight, ClipboardList, Loader2, Menu, X } from "lucide-react";
+import dynamic from "next/dynamic";
+import { useCallback, useEffect, useRef, useState } from "react";
 import ConfirmationDialog from "./ConfirmationDialog";
+import CourseModuleList from "./CourseModuleList";
+import ModuleCompletionSound from "./ModuleCompletionSound";
+import SuccessSound from "./SuccessSound";
 
 // Dynamically import viewer components to avoid SSR issues
 const DynamicLearningMaterialViewer = dynamic(
@@ -1186,6 +1185,7 @@ export default function LearnerCourseView({
                                             ? "text-white"
                                             : "text-gray-400 hover:text-white"
                                             }`}
+                                        aria-label="Close dialog"
                                     >
                                         <X size={20} />
                                     </button>
@@ -1217,7 +1217,6 @@ export default function LearnerCourseView({
                                             <>
                                                 <DynamicLearnerQuizView
                                                     questions={activeItem.questions || []}
-                                                    readOnly={true}
                                                     viewOnly={viewOnly}
                                                     currentQuestionId={activeQuestionId || undefined}
                                                     onQuestionChange={activateQuestion}

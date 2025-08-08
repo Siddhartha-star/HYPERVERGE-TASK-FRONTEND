@@ -1,7 +1,7 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { ChatMessage, ScorecardItem } from '../types/quiz';
+import React, { useEffect, useRef, useState } from 'react';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { ChatMessage, ScorecardItem } from '../types/quiz';
 
 // Code message display component
 const CodeMessageDisplay = ({ code, language }: { code: string, language?: string }) => {
@@ -322,6 +322,7 @@ const ChatHistoryView: React.FC<ChatHistoryViewProps> = ({
                                                         <span className="text-sm text-gray-300 font-light select-none">Show result</span>
                                                     </div>
                                                     <button
+                                                        type="button"
                                                         onClick={() => onShowLearnerViewChange(!showLearnerView)}
                                                         className={`relative cursor-pointer inline-flex h-6 w-11 items-center rounded-full border transition-colors duration-200 focus:outline-none
                                                             ${!showLearnerView ? 'bg-white border-gray-400' : 'bg-[#444950] border-[#444950]'}
